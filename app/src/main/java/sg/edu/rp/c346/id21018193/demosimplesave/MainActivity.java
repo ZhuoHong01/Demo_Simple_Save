@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        String msg = "No Greeting";
+        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+        String msg = prefs.getString("greetings", "No greeting name");
         Toast toast = Toast.makeText(MainActivity.this, msg, Toast.LENGTH_LONG);
         toast.show();
     }
